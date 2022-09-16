@@ -50,9 +50,9 @@ pipeline {
         }
       }
       post {
-        success {
+     // success {
      //     dependencyTrackPublisher projectName: 'sample-spring-app', projectVersion: '0.0.1', artifact: 'target/bom.xml', autoCreateProjects: true, synchronous: true, archiveArtifacts artifacts: 'target/bom.xml', fingerprint: true, onlyIfSuccessful: true
-        }
+    //  }
       }
     } 
     stage('OSS License Checker') {
