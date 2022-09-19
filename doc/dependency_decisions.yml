@@ -16,7 +16,7 @@
   - :who:
     :why:
     :versions: []
-    :when: 2022-09-19    
+    :when: 2022-09-19 15:27:29.688403000 Z
 - - :permit
   - BSD
   - :who: 
@@ -47,14 +47,14 @@
     :why: 
     :versions:
     - 1.2.6
-    :when: 2022-09-19
+    :when: 2022-09-19 15:27:29.688403000 Z
 - - :approve
   - logback-classic
   - :who: 
     :why: 
     :versions:
     - 1.2.6
-    :when: 2022-09-19
+    :when: 2022-09-19 15:27:29.688403000 Z
 - - :approve
   - jakarta.xml.bind-api
   - :who: 
