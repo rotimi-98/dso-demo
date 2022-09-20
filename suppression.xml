@@ -1,0 +1,6 @@
+<suppress>
+    <notes><![CDATA[
+    This suppresses all CVE entries that have a score below CVSS 15.
+    ]]></notes>
+    <cvssBelow>15</cvssBelow>
+</suppress>
