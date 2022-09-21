@@ -101,6 +101,25 @@ pipeline {
         }
       }
     }
+    stage('Image Analysis') {
+      parallel {
+        stage('Image Linting') {
+          steps {
+            container('docker-tools') {
+              sh 'dockle docker.io/rotimi98/dsodemo'
+            }
+          }
+        }
+        stage('Image Scan') {
+          steps {
+            container('docker-tools') {
+              sh 'trivy image --exit-code 1 rotimi98/dso-demo'
+            }
+          }
+        }
+      }
+    }
+
 
     stage('Deploy to Dev') {
       steps {
