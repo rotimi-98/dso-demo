@@ -18,24 +18,6 @@ spec:
       env:
       - name: DOCKLE_HOST
         value: "unix:///var/run/docker.sock"
-      - name: DOCKLE_USERNAME
-        valueFrom:
-          secretKeyRef:
-            name: dockerhubcred
-            key: username
-            optional: false
-      - name: DOCKLE_PASSWORD
-        valueFrom:
-          secretKeyRef:
-            name: dockerhubcred
-            key: password
-            optional: false
-      - name: DOCKLE_AUTH_URL
-        valueFrom:
-          secretKeyRef:
-            name: dockerhubcred
-            key: dockerurl
-            optional: false
       command:
         - cat
       tty: true
