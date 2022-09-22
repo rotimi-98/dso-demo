@@ -15,6 +15,8 @@ spec:
           mountPath: /root/.m2/
     - name: docker-tools
       image: rmkanda/docker-tools:latest
+      imagePullSecrets:
+      - name: regcred 
       command:
         - cat
       tty: true
@@ -23,8 +25,6 @@ spec:
           name: docker-sock
         - mountPath: /tmp/trivycache/
           name: trivycache
-        - name: jenkins-docker-cfg
-          mountPath: /dockle/.docker
     - name: trufflehog
       image: rmkanda/trufflehog
       command:
