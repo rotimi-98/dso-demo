@@ -16,6 +16,8 @@ spec:
     - name: docker-tools
       image: rmkanda/docker-tools:latest
       env:
+      - name: DOCKLE_HOST
+        value: "unix:///var/run/docker.sock"
       - name: DOCKLE_USERNAME
         valueFrom:
           secretKeyRef:
