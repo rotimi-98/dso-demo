@@ -15,8 +15,25 @@ spec:
           mountPath: /root/.m2/
     - name: docker-tools
       image: rmkanda/docker-tools:latest
-      imagePullSecrets:
-      - name: regcred 
+      env:
+      - name: DOCKLE_USERNAME
+        valueFrom:
+          secretKeyRef:
+            name: dockerhubcred
+            key: username
+            optional: false
+      - name: DOCKLE_PASSWORD
+        valueFrom:
+          secretKeyRef:
+            name: dockerhubcred
+            key: password
+            optional: false
+      - name: DOCKLE_AUTH_URL
+        valueFrom:
+          secretKeyRef:
+            name: dockerhubcred
+            key: dockerurl
+            optional: false
       command:
         - cat
       tty: true
