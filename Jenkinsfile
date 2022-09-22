@@ -106,7 +106,7 @@ pipeline {
         stage('Image Linting') {
           steps {
             container('docker-tools') {
-              sh 'dockle docker.io/rotimi98/dsodemo:v7'
+              sh 'dockle -v /var/run/docker.sock:/var/run/docker.sock docker.io/rotimi98/dsodemo:v7'
             }
           }
         }

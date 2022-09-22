@@ -15,9 +15,6 @@ spec:
           mountPath: /root/.m2/
     - name: docker-tools
       image: rmkanda/docker-tools:latest
-      env:
-      - name: DOCKLE_HOST
-        value: "unix:///var/run/docker.sock"
       command:
         - cat
       tty: true
