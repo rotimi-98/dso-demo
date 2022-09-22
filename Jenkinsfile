@@ -95,7 +95,7 @@ pipeline {
         stage('Docker BnP') {
           steps {
             container('kaniko') {
-              sh '/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --insecure --skip-tls-verify --cache=true --destination=docker.io/rotimi98/dso-demo'
+              sh '/kaniko/executor -f `pwd`/Dockerfile -c `pwd` --insecure --skip-tls-verify --cache=true --destination=docker.io/rotimi98/dso-demo:v7'
             }
           }
         }
@@ -106,14 +106,14 @@ pipeline {
         stage('Image Linting') {
           steps {
             container('docker-tools') {
-              sh 'dockle docker.io/rotimi98/dsodemo:latest'
+              sh 'dockle docker.io/rotimi98/dsodemo:v7'
             }
           }
         }
         stage('Image Scan') {
           steps {
             container('docker-tools') {
-              sh 'trivy image --exit-code 1 rotimi98/dso-demo'
+              sh 'trivy image --exit-code 1 rotimi98/dso-demo:v7'
             }
           }
         }
