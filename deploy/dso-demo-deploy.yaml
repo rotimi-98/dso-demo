@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: dso-demo
+  name: dso-demo
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: dso-demo
+  template:
+    metadata:
+      labels:
+        app: dso-demo
+    spec:
+      containers:
+      - image: rotimi98/dso-demo:v7
+        name: dso-demo
+        ports:
+        - containerPort: 8080
