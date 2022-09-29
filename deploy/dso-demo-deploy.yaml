@@ -17,5 +17,22 @@ spec:
       containers:
       - image: rotimi98/dso-demo:v7
         name: dso-demo
+        resources:
+          limits:
+            cpu: "250m"
+            memory: "256Mi"
+          requests:
+            cpu: "50m"
+            memory: "128Mi"
         ports:
         - containerPort: 8080
+        securityContext:
+          capabilities:
+            drop:
+            - all
+            - index("ALL")
+          runAsUser: 11000
+          runAsGroup: 30000
+          readOnlyRootFilesystem: true
+          runAsNonRoot: true
+          allowPrivilegeEscalation: false
