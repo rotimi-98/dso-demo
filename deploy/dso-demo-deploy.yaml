@@ -4,6 +4,8 @@ metadata:
   labels:
     app: dso-demo
   name: dso-demo
+  annotations:
+    seccomp.security.alpha.kubernetes.io/pod: "runtime/default"
 spec:
   replicas: 3
   selector:
@@ -30,6 +32,8 @@ spec:
         ports:
         - containerPort: 8080
         securityContext:
+                #seccompProfile:
+                #type: RuntimeDefault
           capabilities:
             drop:
             - all
