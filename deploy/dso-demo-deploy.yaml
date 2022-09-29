@@ -16,6 +16,8 @@ spec:
       labels:
         app: dso-demo
     spec:
+      serviceAccountName: dso-demo
+      automountServiceAccountToken: false
       volumes:
       - name: temp-storage
         emptyDir: {}
