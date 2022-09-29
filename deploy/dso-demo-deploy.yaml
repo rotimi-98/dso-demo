@@ -30,9 +30,10 @@ spec:
           capabilities:
             drop:
             - all
-            - index("ALL")
+              #  - index("ALL")
           runAsUser: 11000
           runAsGroup: 30000
-          readOnlyRootFilesystem: true
+          # readOnlyRootFilesystem: true
           runAsNonRoot: true
           allowPrivilegeEscalation: false
+          privileged: false
