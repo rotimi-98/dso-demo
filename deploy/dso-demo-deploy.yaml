@@ -14,6 +14,9 @@ spec:
       labels:
         app: dso-demo
     spec:
+      volumes:
+      - name: temp-storage
+        emptyDir: {}
       containers:
       - image: rotimi98/dso-demo:v7
         name: dso-demo
@@ -33,7 +36,10 @@ spec:
               #  - index("ALL")
           runAsUser: 11000
           runAsGroup: 30000
-          # readOnlyRootFilesystem: true
+          readOnlyRootFilesystem: true
           runAsNonRoot: true
           allowPrivilegeEscalation: false
           privileged: false
+        volumeMounts:  
+        - name: temp-storage
+          mountPath: /tmp
